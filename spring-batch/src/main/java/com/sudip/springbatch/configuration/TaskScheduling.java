@@ -25,7 +25,8 @@ public class TaskScheduling {
 
     @Scheduled(cron = "0 */1 * * * ?")
     public void runJob() throws JobParametersInvalidException, JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException {
-        JobParameters params = new JobParametersBuilder().addString("Running count : ",String.valueOf(++i)).toJobParameters();
+        JobParameters params = new JobParametersBuilder().addString("Running count : "
+                , String.valueOf(++i)).toJobParameters();
         jobLauncher.run(job, params);
     }
 }
